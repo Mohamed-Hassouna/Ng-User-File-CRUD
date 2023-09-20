@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { UserActionService } from 'src/app/service/user-action.service';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private actionDef: UserActionService) { }
+
+  userData: User[] = [];
 
   ngOnInit(): void {
+    this.userData = this.actionDef.getUsers();
+  }
+  onDelete(user: User): void {
+    this.actionDef.removeUser(user);
   }
 
 }
