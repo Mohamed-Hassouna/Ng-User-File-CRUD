@@ -1,1 +1,61 @@
-<p>add works!</p>
+<form class="container w-50 " [formGroup]="addForm">
+    <div formGroupName="name" class="form-row">
+      <div class="form-group col-md-6">
+        <label for="first">First Name</label>
+        <input type="text" class="form-control" name="first" formControlName="first" id="first"
+          [class.is-invalid]="addForm.get('name.first').invalid && addForm.get('name.first').touched"
+          [class.is-valid]="addForm.get('name.first').valid && addForm.get('name.first').touched">
+        <span class="invalid-feedback" *ngIf="addForm.get('name.first').invalid && addForm.get('name.first').touched">
+          First name is required and should be between 3 and 10 characters.
+        </span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="last">Last Name</label>
+        <input type="text" class="form-control" name="last" formControlName="last" id="last"
+          [class.is-invalid]="addForm.get('name.last').invalid && addForm.get('name.last').touched"
+          [class.is-valid]="addForm.get('name.last').valid && addForm.get('name.last').touched">
+        <span class="invalid-feedback" *ngIf="addForm.get('name.last').invalid && addForm.get('name.last').touched">
+          Last name is required and should be between 3 and 10 characters.
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birthdate">Birthdate</label>
+      <input type="text" class="form-control" name="birthdate" formControlName="birthdate" id="birthdate"
+        [class.is-invalid]="addForm.get('birthdate').invalid && addForm.get('birthdate').touched"
+        [class.is-valid]="addForm.get('birthdate').valid && addForm.get('birthdate').touched">
+      <span class="invalid-feedback" *ngIf="addForm.get('birthdate').invalid && addForm.get('birthdate').touched">
+        Birthdate is required.
+      </span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" formControlName="email" id="email"
+        [class.is-invalid]="addForm.get('email').invalid && addForm.get('email').touched"
+        [class.is-valid]="addForm.get('email').valid && addForm.get('email').touched">
+      <span class="invalid-feedback" *ngIf="addForm.get('email').invalid && addForm.get('email').touched">
+        Email is required and should be a valid email address.
+      </span>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" name="phone" formControlName="phone" id="phone"
+          [class.is-invalid]="addForm.get('phone').invalid && addForm.get('phone').touched"
+          [class.is-valid]="addForm.get('phone').valid && addForm.get('phone').touched">
+        <span class="invalid-feedback" *ngIf="addForm.get('phone').invalid && addForm.get('phone').touched">
+          Phone is required.
+        </span>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" name="address" formControlName="address" id="address"
+          [class.is-invalid]="addForm.get('address').invalid && addForm.get('address').touched"
+          [class.is-valid]="addForm.get('address').valid && addForm.get('address').touched">
+        <span class="invalid-feedback" *ngIf="addForm.get('address').invalid && addForm.get('address').touched">
+          Address is required.
+        </span>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" (click)="onAdd()" [disabled]="addForm.invalid">Add</button>
+  </form>

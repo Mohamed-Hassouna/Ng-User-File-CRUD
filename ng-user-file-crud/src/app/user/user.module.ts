@@ -5,6 +5,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { AddComponent } from './add/add.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }
