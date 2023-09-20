@@ -38,4 +38,8 @@ export class AddComponent implements OnInit {
       this.router.navigate(['user/list']);
     }
   }
+  back(): void {
+    this.router.navigate(['user/list']);
+  }
+
 }

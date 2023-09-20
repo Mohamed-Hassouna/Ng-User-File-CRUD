@@ -68,4 +68,7 @@ export class EditComponent implements OnInit {
     this.userService.updateUser(this.id, updatedUser);
     this.router.navigate(['user/list']);
   }
+  back(): void {
+    this.router.navigate(['user/list']);
+  }
 }
